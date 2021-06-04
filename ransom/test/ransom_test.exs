@@ -3,6 +3,9 @@ defmodule RansomTest do
   doctest Ransom
 
   test "validates can_scramble?" do
+    assert Ransom.can_scramble?("", "") === true
+    assert Ransom.can_scramble?("", "abcd") === false
+    assert Ransom.can_scramble?("abc", "") === true
     assert Ransom.can_scramble?("abc", "abcd") === false
     assert Ransom.can_scramble?("space test", "test space") === true
     assert Ransom.can_scramble?("space test", "TEST SPACE") === true
